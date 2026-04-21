@@ -1,1 +1,50 @@
+###//// cesar by//#####
 
+<form action="" method="POST">
+    <label for="ambiente">Tamanho do Ambiente:</label>
+    <select name="ambiente" id="ambiente" required>
+        <option value="">-- Selecione --</option>
+        <option value="residencial">Casa / Apartamento</option>
+        <option value="pequeno_escritorio">Pequeno Escritório</option>
+        <option value="data_center">Data Center Corporativo</option>
+    </select>
+
+
+
+    <button type="submit">Ver Recomendação</button>
+</form>
+
+<?php
+
+if (isset($_POST["ambiente"])) {
+
+    $ambiente = $_POST["ambiente"];
+
+    switch ($ambiente) {
+        case "residencial":
+            echo "<h2>Recomendação da ConectaJá</h2>";
+            echo "Roteador Wireless (SOHO)";
+            break;
+
+        case "pequeno_escritorio":
+            echo "<h2>Recomendação da ConectaJá</h2>";
+            echo "Switch Gerenciável de 24 Portas";
+            break;
+
+        case "data_center":
+            echo "<h2>Recomendação da ConectaJá</h2>";
+            echo "Roteador de Borda e Switch Layer 3";
+            break;
+
+        default:
+            echo "<h2>Erro</h2>";
+            echo "Ambiente não reconhecido.";
+            break;
+    }
+
+} else {
+    echo "<h2>Erro</h2>";
+    echo "Nenhum dado foi enviado pelo formulário.";
+}
+
+?>
